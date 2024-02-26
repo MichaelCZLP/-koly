@@ -1,0 +1,59 @@
+Kolik je 2 + 2?
+3
+4
+5
+b
+
+Kolik má nohou pavouk?
+4
+6
+8
+c
+
+Kdo napsal Romeo a Julie?
+William Shakespeare
+Jane Austen
+Leo Tolstoj
+a
+
+Jaký je hlavní město České republiky?
+Brno
+Ostrava
+Praha
+c
+
+Co je chemický vzorec vody?
+H2O2
+CO2
+H2O
+c
+
+Co je chemický vzorec vody?
+H2O2
+H2O
+CO2
+b
+
+Kolik je 5 + 5?
+10
+15
+20
+a
+  
+Kdo napsal knihu "Válka s mloky"?
+Karel Čapek
+Franz Kafka
+Jaroslav Hašek
+a
+  
+Jaká je hlavní složka v pivu?
+Kukuřice
+Ječmen
+Rýže
+b
+
+Jak dlouho trvala třicetiletá válka?
+29
+30
+31
+b
