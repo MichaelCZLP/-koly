@@ -27,9 +27,6 @@ class Ctvrc(Tvar):
     
     def calc_obsah(self):
         return self.side_length ** 2
-    
-    def calc_objem(self):
-        return None  # Čtverec nemá objem
 
 # Odvozená třída pro obdélník
 class Obdelnik(Tvar):
@@ -43,34 +40,34 @@ class Obdelnik(Tvar):
     def calc_obsah(self):
         return self.sirka * self.vyska
     
-    def calc_objem(self):
-        return None  # Obdélník nemá objem
-
 # Odvozená třída pro kvádr
 class Kvadr(Obdelnik):
     def __init__(self, a, b, c):
         super().__init__(a, b)
         self.c = c
     
+    def calc_obsah(self):
+        return 2 * (self.sirka * self.vyska + self.sirka * self.c + self.vyska * self.c)
+    
     def calc_objem(self):
         return self.sirka * self.vyska * self.c
 
 # Odvozená třída pro krychli
-class Krychle(Obdelnik):
-    def __init__(self, a, b, c):
-        super().__init__(a, b)
-        self.c = c
+class Krychle(Tvar):
+    def __init__(self, a):
+        super().__init__()
+        self.a = a
+    
+    def calc_obsah(self):
+        return 6 * (self.a ** 2)
     
     def calc_objem(self):
-        return self.sirka * self.vyska * self.c
+        return self.a ** 3
 
 # Odvozená třída pro kouli
 class Koule(Tvar):
     def __init__(self, prumer):
         self.prumer = prumer
-    
-    def calc_obvod(self):
-        return None  # Koule nemá obvod
     
     def calc_obsah(self):
         return 4 * math.pi * self.prumer ** 2
@@ -88,9 +85,6 @@ class Kruznice(Tvar):
     
     def calc_obsah(self):
         return math.pi * self.polomer ** 2
-    
-    def calc_objem(self):
-        return None  # Kružnice nemá objem
 
 # Ukázka použití tříd
 ctvrc = Ctvrc(5)
@@ -99,10 +93,10 @@ print("Čtverec - Obvod:", ctvrc.calc_obvod(), "Obsah:", ctvrc.calc_obsah())
 obdelnik = Obdelnik(4, 6)
 print("Obdélník - Obvod:", obdelnik.calc_obvod(), "Obsah:", obdelnik.calc_obsah())
 
-kvadr = Kvadr(3, 3, 3)
-print("Kvádr - Obvod:", kvadr.calc_obvod(), "Povrchová plocha:", kvadr.calc_obsah(), "Objem:", kvadr.calc_objem())
+kvadr = Kvadr(3, 4, 5)
+print("Kvádr - Povrchová plocha:", kvadr.calc_obsah(), "Objem:", kvadr.calc_objem())
 
-krychle = Krychle(2, 4, 6)
+krychle = Krychle(3)
 print("Krychle - Povrchová plocha:", krychle.calc_obsah(), "Objem:", krychle.calc_objem())
 
 koule = Koule(4)
