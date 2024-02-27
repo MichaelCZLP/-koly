@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -49,6 +49,7 @@ int main() {
 
     // Hledání dvou čísel s součtem 2020
     int result = 0;
+    bool foundTwoNumbers = false;
     for (size_t i = 0; i < numbers.size(); ++i) {
         for (size_t j = i + 1; j < numbers.size(); ++j) {
             if (numbers[i] + numbers[j] == 2020) {
@@ -56,11 +57,47 @@ int main() {
                 std::wcout << L"První číslo: " << numbers[i] << std::endl;
                 std::wcout << L"Druhé číslo: " << numbers[j] << std::endl;
                 std::wcout << L"Součin: " << result << std::endl;
-                return EXIT_SUCCESS;
+                foundTwoNumbers = true;
+                break;
             }
+        }
+        if (foundTwoNumbers) {
+            break;
         }
     }
 
-    std::wcout << L"Nepodařilo se najít dvě čísla s součtem 2020." << std::endl;
+    if (!foundTwoNumbers) {
+        std::wcout << L"Nepodařilo se najít dvě čísla s součtem 2020." << std::endl;
+    }
+
+    // Hledání tří čísel s součtem 2020
+    result = 0;
+    bool foundThreeNumbers = false;
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        for (size_t j = i + 1; j < numbers.size(); ++j) {
+            for (size_t k = j + 1; k < numbers.size(); ++k) {
+                if (numbers[i] + numbers[j] + numbers[k] == 2020) {
+                    result = numbers[i] * numbers[j] * numbers[k];
+                    std::wcout << L"První číslo: " << numbers[i] << std::endl;
+                    std::wcout << L"Druhé číslo: " << numbers[j] << std::endl;
+                    std::wcout << L"Třetí číslo: " << numbers[k] << std::endl;
+                    std::wcout << L"Součin: " << result << std::endl;
+                    foundThreeNumbers = true;
+                    break;
+                }
+            }
+            if (foundThreeNumbers) {
+                break;
+            }
+        }
+        if (foundThreeNumbers) {
+            break;
+        }
+    }
+
+    if (!foundThreeNumbers) {
+        std::wcout << L"Nepodařilo se najít tři čísla s součtem 2020." << std::endl;
+    }
+
     return EXIT_SUCCESS;
 }

@@ -14,7 +14,7 @@ def main():
     book.set_id(library.get_unique_id())
     library.add_book(book)
     print()
-    print("Dostupné knihy:")
+    print("Dostupné knihy:\n")
     library.show_available_books()
     print()
     print("Půjčení knihy:")

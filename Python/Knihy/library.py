@@ -25,7 +25,7 @@ class Library:
                 print(book)
 
     def find_book_and_borrow_it(self, name):
-        found_books = [book for book in self.books if name.lower() in book.name.lower()]
+        found_books = [book for book in self.books if name.lower() in book.name.lower() and book.available == "Available"]
         if not found_books:
             print("\nNenalezena žádná dostupná kniha s tímto jménem.")
         elif len(found_books) > 1:
