@@ -53,27 +53,15 @@ class Kvadr(Obdelnik):
         return self.sirka * self.vyska * self.c
 
 # Odvozená třída pro krychli
-class Krychle(Tvar):
-    def __init__(self, a):
-        super().__init__()
-        self.a = a
+class Krychle(Ctvrc):
+    def __init__(self, side_length):  
+        self.side_length = side_length  
     
     def calc_obsah(self):
-        return 6 * (self.a ** 2)
+        return 6 * (self.side_length ** 2)
     
     def calc_objem(self):
-        return self.a ** 3
-
-# Odvozená třída pro kouli
-class Koule(Tvar):
-    def __init__(self, prumer):
-        self.prumer = prumer
-    
-    def calc_obsah(self):
-        return 4 * math.pi * self.prumer ** 2
-    
-    def calc_objem(self):
-        return (4 / 3) * math.pi * self.prumer ** 3
+        return self.side_length ** 3
 
 # Odvozená třída pro kružnici
 class Kruznice(Tvar):
@@ -85,6 +73,17 @@ class Kruznice(Tvar):
     
     def calc_obsah(self):
         return math.pi * self.polomer ** 2
+    
+# Odvozená třída pro kouli    
+class Koule(Kruznice):  
+    def __init__(self, prumer):
+        super().__init__(prumer / 2)
+    
+    def calc_obsah(self):
+        return 4 * math.pi * (self.polomer ** 2)
+    
+    def calc_objem(self):
+        return (4 / 3) * math.pi * (self.polomer ** 3)
 
 # Ukázka použití tříd
 ctvrc = Ctvrc(5)
